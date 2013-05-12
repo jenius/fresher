@@ -4,7 +4,7 @@ Fresher
 Fresher is a very small and simple utility for checking the local version of a node library installed through npm against the most recent remote version. This way, you can notify your users if there's a new version out so they can update it as soon as possible.
 
 > "I'm in between but way more fresher"    
-> - Kanye West
+> ~ Kanye West
 
 ### Usage
 
@@ -21,7 +21,7 @@ fresher('name_on_npm', '../package.json', function(err, needs_update){
   } else {
     console.log('you are running on the freshest homie');
   }
-  
+
 });
 ```
 
