@@ -1,4 +1,4 @@
-var ajax = require('superagent'),
+var request = require('request'),
     fs = require('fs'),
     semver = require('semver');
 
@@ -11,15 +11,19 @@ var ajax = require('superagent'),
 
 module.exports = function(name, path, cb){
 
-  ajax.get('http://registry.npmjs.org/' + name, function(res){
-    var error = null;
-    if (res.error) error = res.error;
-    var latest_version = JSON.parse(res.text)['dist-tags'].latest;
+  request({ url: 'http://registry.npmjs.org/' + name, timeout: 2000}, function(err, res){
+    if (!res) {
+      var error = "npm registry responding too slowly";
+    } else {
+      var error = null;
+      if (res.error) error = res.error;
+      var latest_version = JSON.parse(res.text)['dist-tags'].latest;
 
-    try {
-      var current_version = JSON.parse(fs.readFileSync(path)).version
-    } catch(err){
-      error = err;
+      try {
+        var current_version = JSON.parse(fs.readFileSync(path)).version
+      } catch(err){
+        error = err;
+      }
     }
 
     cb(error, semver.gt(latest_version, current_version))

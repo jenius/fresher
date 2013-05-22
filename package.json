@@ -1,6 +1,6 @@
 {
   "name": "fresher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "fresher checks the locally installed version of an npm library against the remote version and notifies if out of date.",
   "bugs": "https://github.com/jenius/fresher/issues",
   "author": "Jeff Escalante",
@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "semver": "1.1.x",
-    "superagent": "0.14.x"
+    "request": "2.21.x"
   },
   "devDependencies": {
     "mocha": "latest",
+    "coffee-script": "latest",
     "should": "latest"
   },
   "engines": {
