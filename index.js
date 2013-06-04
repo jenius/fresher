@@ -17,7 +17,7 @@ module.exports = function(name, path, cb){
     } else {
       var error = null;
       if (res.error) error = res.error;
-      var latest_version = JSON.parse(res.text)['dist-tags'].latest;
+      var latest_version = JSON.parse(res.body)['dist-tags'].latest;
 
       try {
         var current_version = JSON.parse(fs.readFileSync(path)).version

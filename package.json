@@ -1,6 +1,6 @@
 {
   "name": "fresher",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "fresher checks the locally installed version of an npm library against the remote version and notifies if out of date.",
   "bugs": "https://github.com/jenius/fresher/issues",
   "author": "Jeff Escalante",
